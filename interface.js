@@ -12,17 +12,18 @@ function setup() {
 }
 
 function draw() {
-    background(250);
+    background(255);
+    
     let w = width / 3;
     let h = height / 3;
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
           
-            let x = w * i + w/2;
-            let y = h * j + h/2;
+            let x = w * j + w/2;
+            let y = h * i + h/2;
           
-            let pos = board[i][j];
+            let pos = board[j][i];
             textSize(32);
             
             if (pos == player1) {
