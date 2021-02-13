@@ -1,16 +1,20 @@
+// Initialize Canvas
 function setup() {
     createCanvas(400, 400);
 }
 
+// Initialize Board
 let board = [
     ['X', 'O', 'X'],
     ['O', 'X', 'O'],
     ['X', 'O', 'X'],
 ];
 
+// Initialize Players
 let P1 = 'X';
 let P2 = 'O';
 
+// Draws X's and O's relative to the center of a spot on the board
 function draw() {
     background(255);
 
