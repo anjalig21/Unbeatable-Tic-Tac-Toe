@@ -1,3 +1,7 @@
+function setup() {
+    createCanvas(400, 400);
+}
+
 let board = [
     ['X', 'O', 'X'],
     ['O', 'X', 'O'],
@@ -5,11 +9,7 @@ let board = [
 ];
 
 let P1 = 'X';
-let P1 = 'O';
-
-function setup() {
-    createCanvas(400, 400);
-}
+let P2 = 'O';
 
 function draw() {
     background(255);
@@ -27,7 +27,7 @@ function draw() {
             textSize(32);
             
             if (pos == P1) {
-              let size = w/4;
+              let size = (w / 4);
               line(x - size, y - size, x + size, y + size);
               line(x + size, y - size, x - size, y + size);
             }
