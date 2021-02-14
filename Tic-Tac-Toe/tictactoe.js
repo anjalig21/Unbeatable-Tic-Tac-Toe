@@ -100,15 +100,13 @@ function draw() {
       let y = (h * i) + (h / 2);
       let x = (w * j) + (w / 2);
 
-      let pos = board[i][j];
-
-      if (pos == AI) {
+      if (board[i][j] == AI) {
         // Draws X
         let size = (w / 4);
         line(x - size, y - size, x + size, y + size);
         line(x + size, y - size, x - size, y + size);
       }
-      else if (pos == HUMAN) {
+      else if (board[i][j] == HUMAN) {
         // Draws O
         noFill();
         ellipse(x, y, (w / 2));
