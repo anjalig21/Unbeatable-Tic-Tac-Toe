@@ -1,11 +1,11 @@
-// Initialize Board
+// Initialize Board to Empty
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
   [' ', ' ', ' '],
 ];
 
-// Initialize Players
+// Initialize Players and Available Spots
 let players = ['X', 'O'];
 let currentPlayer;
 let available = [];
@@ -21,18 +21,52 @@ function setup() {
   }
 }
 
-function nextMove() {
-let index = floor(random(available.length));
-let pos = available.splice(index,1)[0];
-let i = pos[0];
-let j = pos[1];
-console.log(i,j);
-board[i][j] = players[currentPlayer];
-currentPlayer = (currentPlayer + 1) % players.length;
+function equal_check(a, b, c) {
+  return (a == b && b == c && a != ' ');
 }
 
-function mousePressed() {
-nextMove();
+function checkWinner() {
+  let winner = null;
+  
+  // Vertical Win
+  for (let i = 0; i < 3; i++) {
+      if (equal_check(board[i][0], board[i][1], board[i][2])) {
+        winner = board[i][0];
+      }
+  }
+  
+  // Horizontal Win
+  for (let i = 0; i < 3; i++) {
+      if (equal_check(board[0][i], board[1][i], board[2][i])) {
+        winner = board[0][i];
+      }
+  }
+  
+  // Diagonal Wins
+  if (equal_check(board[0][0], board[1][1], board[2][2])) {
+    winner = board[0][0];
+  }
+  
+  if (equal_check(board[2][0], board[1][1], board[0][2])) {
+    winner = board[2][0];
+  }
+  
+  // Tie
+  if (winner == null && available.length == 0) {
+    return 'tie';
+  } else {
+    return winner;
+  }
+}
+
+// Plays the next move
+function nextMove() {
+  let index = floor(random(available.length));
+  let pos = available.splice(index,1)[0];
+  let i = pos[0];
+  let j = pos[1];
+  board[i][j] = players[currentPlayer];
+  currentPlayer = (currentPlayer + 1) % players.length;
 }
 
 // Draws X's and O's relative to the center of a spot on the board
@@ -67,5 +101,21 @@ function draw() {
             ellipse(x,y,(w / 2));
           }
       }
+  }
+  
+  // Prints out the result
+  let finalResult = checkWinner();
+  if (finalResult != null) {
+    noLoop();
+    let resultP = createP('');
+    resultP.style('font-size', '32pt');
+    
+    if (result == 'tie') {
+      resultP.html('Tie!');
+    } else {
+      resultP.html(`${result} wins!`);
+    }
+  } else {
+    nextMove();
   }
 }
