@@ -107,13 +107,13 @@ function draw() {
   let finalResult = checkWinner();
   if (finalResult != null) {
     noLoop();
-    let resultP = createP('');
-    resultP.style('font-size', '32pt');
+    let result = createP('');
+    result.style('font-size', '32pt');
     
-    if (result == 'tie') {
-      resultP.html('Tie!');
+    if (finalResult == 'tie') {
+      result.html('Tie!');
     } else {
-      resultP.html(`${result} wins!`);
+      result.html(`${finalResult} wins!`);
     }
   } else {
     nextMove();
