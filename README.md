@@ -2,4 +2,4 @@
 This is an unbeatable tic-tac-toe game created with the minimax algorithm.
 
 ## Demo 
-![](tic-tac-toe.gif)
+![](Tic-Tac-Toe/tic-tac-toe.gif)
