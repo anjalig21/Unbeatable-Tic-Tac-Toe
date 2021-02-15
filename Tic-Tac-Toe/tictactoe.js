@@ -32,6 +32,7 @@ function startGame() {
     }
 }
 
+// Starts Turns Based on Human Click
 function turnClick(square) {
     if (typeof board[square.target.id] == 'number') {
         turn(square.target.id, HUMAN)
@@ -41,6 +42,7 @@ function turnClick(square) {
     }
 }
 
+// Executes Turn
 function turn(squareId, player) {
     board[squareId] = player;
     document.getElementById(squareId).innerText = player;
@@ -50,6 +52,7 @@ function turn(squareId, player) {
     }
 }
 
+// Checks for a Winner
 function checkWinner(mimic_board, player) {
     let winner = null;
     let plays = [];
@@ -68,7 +71,7 @@ function checkWinner(mimic_board, player) {
     return winner;
 }
 
-
+// Stops the game and outputs result
 function gameOver(winner) {
     for (let i of winCombos[winner.i]) {
         document.getElementById(i).style.backgroundColor =
@@ -80,19 +83,23 @@ function gameOver(winner) {
     declareWinner(winner.player == HUMAN ? "You Win!" : "You Lose :(");
 }
 
+// Outputs Result
 function declareWinner(who) {
 	document.querySelector(".endgame").style.display = "block";
 	document.querySelector(".endgame .text").innerText = who;
 }
 
+// Returns number of empty spots on board
 function emptySquares() {
 	return board.filter(s => typeof s == 'number');
 }
 
+// AI uses minimax algorithm to find the best spot
 function bestSpot() {
 	return minimax(board, AI).index;
 }
 
+// Checks for any tie
 function checkTie() {
 	if (emptySquares().length == 0) {
 		for (var i = 0; i < cells.length; i++) {
@@ -105,6 +112,7 @@ function checkTie() {
 	return false;
 }
 
+// Minimax Algorithm
 function minimax(newBoard, player) {
 	var availSpots = emptySquares();
 
