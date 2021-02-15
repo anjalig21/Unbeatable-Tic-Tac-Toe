@@ -1,7 +1,17 @@
- table {
+body{
+    background-image: url("https://webdesignledger.com/wp-content/uploads/2012/09/patterns03a.jpg");
+}
+
+h2 {
+    font-size: 400%;
+    font-family:fantasy;
+    text-align: center;
+}
+
+table {
      border-collapse: collapse;
      position: absolute;
-     margin: 15% 10% 10% 34%;
+     margin: 2% 10% 10% 37%;
  }
  
  td {
@@ -31,15 +41,41 @@ table tr td:last-child {
     border-right: 0;
 }
 
+button {
+    margin: 34% 10% 10% 45.5%;
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(255,255,255);
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+  }
+
 .endgame {
     display: none;
-    width: 310px;
-    height: 310px;
-    background-color: rgba(95,95,95,0.8);
-    margin: 15% 10% 10% 34%;
+    width: 20%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 8% 20% 20% 39%;
     position: absolute;
     text-align: center;
     border-radius: 5px;
     color: rgb(255,255,255);
     font-size: 2em;
+  }
+
+  .text {
+      margin-top: 20%;
+      font-size: 100%;
+      font-weight: 600;
   }
