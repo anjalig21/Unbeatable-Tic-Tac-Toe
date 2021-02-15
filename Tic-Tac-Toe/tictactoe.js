@@ -115,46 +115,46 @@ function checkTie() {
 }
 
 // Minimax Algorithm
-function minimax(newBoard, player) {
-	var availSpots = emptySquares();
+function minimax(mimic_board, player) {
+	let openSpots = emptySquares();
 
-	if (checkWinner(newBoard, HUMAN)) {
+	if (checkWinner(mimic_board, HUMAN)) {
 		return {score: -10};
-	} else if (checkWinner(newBoard, AI)) {
+	} else if (checkWinner(mimic_board, AI)) {
 		return {score: 10};
-	} else if (availSpots.length === 0) {
+	} else if (openSpots.length === 0) {
 		return {score: 0};
 	}
-	var moves = [];
-	for (var i = 0; i < availSpots.length; i++) {
-		var move = {};
-		move.index = newBoard[availSpots[i]];
-		newBoard[availSpots[i]] = player;
+	let moves = [];
+	for (let i = 0; i < openSpots.length; i++) {
+		let move = {};
+		move.index = mimic_board[openSpots[i]];
+		mimic_board[openSpots[i]] = player;
 
 		if (player == AI) {
-			var result = minimax(newBoard, HUMAN);
+			let result = minimax(mimic_board, HUMAN);
 			move.score = result.score;
 		} else {
-			var result = minimax(newBoard, AI);
+			let result = minimax(mimic_board, AI);
 			move.score = result.score;
 		}
 
-		newBoard[availSpots[i]] = move.index;
+		mimic_board[openSpots[i]] = move.index;
 
 		moves.push(move);
 	}
 
-	var bestMove;
+	let bestMove;
 	if(player === AI) {
-		var bestScore = -Infinity;
-		for(var i = 0; i < moves.length; i++) {
+		let bestScore = -Infinity;
+		for(let i = 0; i < moves.length; i++) {
 			if (moves[i].score > bestScore) {
 				bestScore = moves[i].score;
 				bestMove = i;
 			}
 		}
 	} else {
-		var bestScore = Infinity;
+		let bestScore = Infinity;
 		for(var i = 0; i < moves.length; i++) {
 			if (moves[i].score < bestScore) {
 				bestScore = moves[i].score;
