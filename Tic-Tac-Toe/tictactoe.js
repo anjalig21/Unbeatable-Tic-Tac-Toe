@@ -37,7 +37,9 @@ function turnClick(square) {
     if (typeof board[square.target.id] == 'number') {
         turn(square.target.id, HUMAN)
         if (!checkTie()) {
-            turn(bestSpot(), AI);
+			setTimeout(function() {
+				turn(bestSpot(), AI);
+			}, 400);
         }
     }
 }
