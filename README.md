@@ -1,8 +1,8 @@
 # Unbeatable-Tic-Tac-Toe
 Developed an unbeatable tic-tac-toe game created with the minimax algorithm.
 
-## How to Use
-Clone this repository and open the html file in your browser! Enjoy playing the unbeatable tic tac toe!
+## Check It Out
+You can play this game here: [!Unbeatable Tic Tac Toe](https://anjalig21.github.io/Unbeatable-Tic-Tac-Toe/)
 
 ## Demo 
-![](Tic-Tac-Toe/tic-tac-toe.gif)
+![](tic-tac-toe.gif)
