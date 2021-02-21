@@ -2,7 +2,7 @@
 Developed an unbeatable tic-tac-toe game created with the minimax algorithm.
 
 ## Check It Out
-You can play this game here: [!Unbeatable Tic Tac Toe](https://anjalig21.github.io/Unbeatable-Tic-Tac-Toe/)
+You can play this game here: [Unbeatable Tic Tac Toe](https://anjalig21.github.io/Unbeatable-Tic-Tac-Toe/)
 
 ## Demo 
 ![](tic-tac-toe.gif)
